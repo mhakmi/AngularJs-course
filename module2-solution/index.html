@@ -1,1 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Shopping List Check Off</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body ng-app="ShoppingListCheckOff">
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Check Off Shopping List App.</h1>
+            <p>AngularJS Course - Assignment 2 Solution</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6" ng-controller="ToBuyController as toBuy">
+                <div class="card">
+                    <div class="card-header">To Buy:</div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li class="pt-2 pb-2" ng-repeat="item in toBuy.items">
+                                Buy {{ item.quantity }} {{ item.name }}
+                                <button type="button" class="btn btn-success float-right" ng-click="toBuy.buyItem($index);">
+                                    <i class="fa fa-check-circle"></i> Bought
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer text-center bg-success text-light" ng-if="!toBuy.items.length">
+                        <span class="fa fa-check-circle"></span> Everything is bought!
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6" ng-controller="AlreadyBoughtController as bought">
+                <div class="card">
+                    <div class="card-header">Already Bought:</div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li class="pt-2 pb-2" ng-repeat="item in bought.items">
+                                Bought {{ item.quantity }} {{ item.name }}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer text-center bg-info text-light" ng-if="!bought.items.length">
+                        <span class="fa fa-info-circle"></span> Nothing bought yet.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
