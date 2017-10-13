@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-md-4 mb-3" ng-repeat="item in found">
+        <div class="card h-100 item">
+            <div class="card-body h-100">
+                <h4 class="card-title">{{ item.name }}</h4>
+                <h6 class="card-subtitle mb-2 text-muted">{{ item.short_name }}</h6>
+                <p class="card-text">{{ item.description }}</p>
+            </div>
+
+            <div class="card-footer">
+                <button type="button" class="btn btn-info float-right" ng-click="onRemove({index: $index});">Don't want this one!</button>
+            </div>
+        </div>
+
+    </div>
+</div>

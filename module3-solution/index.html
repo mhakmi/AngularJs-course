@@ -1,1 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Narrow It Down</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
+    <style>
+        .item{
+            -webkit-animation: load 0.3s linear;
+            -moz-animation: load 0.3s linear;
+            -o-animation: load 0.3s linear;
+            animation: load 0.3s linear;
+        }
+
+        @-webkit-keyframes load {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+
+        @-moz-keyframes load {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+
+        @-o-keyframes load {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+
+        @keyframes load {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+    </style>
+</head>
+<body ng-app="NarrowItDownApp">
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Narrow It Down App.</h1>
+            <p>AngularJS Course - Assignment 3 Solution</p>
+            <div class="blockquote-footer">Created By <cite>Mohammed J. Hakmi</cite></div>
+        </div>
+    </div>
+
+    <div class="container" ng-controller="NarrowItDownController as ctrl">
+        <div class="row justify-content-center mb-4">
+            <div class="col-12 col-md-6">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Narrow Down Your Chinese Menu Choice!
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="search term" ng-model="ctrl.searchTerm"/>
+                        </div>
+                        <div class="form-group text-center">
+                            <button class="btn btn-primary" ng-click="ctrl.NarrowItDown();"><i class="fa fa-search"></i>  Narrow It Down For Me!</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-danger" role="alert" ng-if="ctrl.errorMsg">
+                    {{ ctrl.errorMsg }}
+                </div>
+
+            </div>
+        </div>
+
+
+        <found-items found="ctrl.found" on-remove="ctrl.removeItem(index)"></found-items>
+
+    </div>
+
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
